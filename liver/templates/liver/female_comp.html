@@ -1,0 +1,72 @@
+{% extends "wrap.html"%}
+{% block title%}Осложнения женщин{% endblock %}
+
+{% block content%}
+<h2>Прогнозирование осложнений у женщин</h2>
+<h3 class="text-secondary">Введите данные</h3>
+    {% if error_message %}
+    <div class="text-danger">
+        {% for e_m in error_message %}
+            <p><strong> {{ e_m }} </strong></p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form action="{% url 'calculate' id_type=4 %}" method = "post">
+        {% csrf_token%}
+        <div class ="form-group">
+            <label for="ACTV"> АЧТВ </label>
+            <input class="form-control" type = "text" id="ACTV" name="actv_resp" value="{{actv_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="CSS"> ЧСС </label>
+            <input class="form-control" type = "number" id="CSS" name="css_resp" value="{{css_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="LP"> ЛП </label>
+            <input class="form-control" type = "text" id="LP" name="lp_resp" value="{{lp_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="MGP"> МЖП </label>
+            <input class="form-control" type = "text" id="MGP" name="mgp_resp" value="{{mgp_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="ZS"> ЗС </label>
+            <input class="form-control" type = "text" id="ZS" name="zs_resp" value="{{zs_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="FV"> ФВ </label>
+            <input class="form-control" type = "number" id="FV" name="fv_resp" value="{{fv_val}}">
+        </div>
+        <div class ="form-group form-check">
+            <input class="form-check-input" type="checkbox" id ="IBS" name="ibs_resp" value="{{ibs_val}}">
+            <label class="form-check-label" for="IBS"> ИБС </label>
+        </div>
+        <div class ="form-group form-check">
+            <input class="form-check-input" type="checkbox" id ="CSN" name="csn_resp" value="{{csn_val}}">
+            <label class="form-check-label" for="CSN"> ХСН </label>
+        </div>
+        <div class ="form-group form-check">
+            <input class="form-check-input" type="checkbox" id ="CHR_PAN" name="chr_resp" value="{{chr_val}}">
+            <label class="form-check-label" for="CHR_PAN"> Хронический панкреатит </label>
+        </div>
+        <div class ="form-group">
+            <label for="DAD">ДАД</label>
+            <input class="form-control" type = "number" id="DAD" name="dad_resp" value="{{dad_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="EMOT"> Рол.функци. из-за эмоционального состояния </label>
+            <input class="form-control" type = "text" id="EMOT" name="emot_resp" value="{{emot_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="CM"> Комп. мор. </label>
+            <input class="form-control" type = "number" id="CM" name="cm_resp" value="{{cm_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="SCORE"> Score </label>
+            <input class="form-control" type = "text" id="SCORE" name="score_resp" value="{{score_val}}">
+        </div>
+
+        <input type="submit" class="btn btn-info" value="Прогнозировать">
+    </form>
+{% endblock%}

@@ -1,0 +1,48 @@
+{% extends "wrap.html"%}
+{% block title%}Осложнения мужчин{% endblock %}
+
+{% block content%}
+<h2>Прогнозирование осложнений у мужчин</h2>
+<h3 class="text-secondary">Введите данные</h3>
+    {% if error_message %}
+    <div class="text-danger">
+        {% for e_m in error_message %}
+            <p><strong> {{ e_m }} </strong></p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form action="{% url 'calculate' id_type=2 %}" method = "post">
+        {% csrf_token%}
+        <div class ="form-group">
+            <label for="LPVP"> ЛПВП </label>
+            <input class="form-control" type="text" id ="LPVP" name="lpvp_resp" value="{{lpvp_val}}">
+        </div>
+        <div class ="form-group form-check">
+            <input class="form-check-input" type="checkbox" id ="SD" name="sd_resp" value="{{sd_val}}">
+            <label class="form-check-label" for="SD"> СД </label>
+        </div>
+        <div class ="form-group form-check">
+            <input class="form-check-input" type="checkbox" id ="CHR_PAN" name="chr_resp" value="{{chr_val}}">
+            <label class="form-check-label" for="CHR_PAN"> Хронический панкреатит </label>
+        </div>
+        <div class ="form-group">
+            <label for="PSYCHO"> Индекс психического здоровья </label>
+            <input class="form-control" type = "number" id="PSYCHO"  name="psycho_resp" value="{{psycho_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="ACTIVITY">Жизненная активность</label>
+            <input class="form-control" type = "number" id="ACTIVITY" name="activity_resp" value="{{activity_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="PG">ПЖ</label>
+            <input class="form-control" type = "number" id="PG" name="pg_resp" value="{{pg_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="DAD"> ДАД</label>
+            <input class="form-control" type = "number" id="DAD"  name="dad_resp" value="dad_val">
+        </div>
+
+        <input class="btn btn-info" type="submit" value="Прогнозировать">
+    </form>
+{% endblock %}

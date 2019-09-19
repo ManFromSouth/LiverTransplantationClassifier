@@ -1,0 +1,40 @@
+{% extends "wrap.html"%}
+{% block title %}Данные о сетях{% endblock %}
+{% block content%}
+<h1 class="text-info">Данные об используемых сетях</h1>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">Тип сети</th>
+        <th scope="col">Правильность тренировочных данных</th>
+        <th scope="col">Всего тренировочных данных</th>
+        <th scope="col">Процент правильных</th>
+        <th scope="col">Правильность тестовых данных</th>
+        <th scope="col">Всего тестовых данных</th>
+        <th scope="col">Процент правильных</th>
+        <th scope="col">Всего правильных ответов</th>
+        <th scope="col">Всего данных</th>
+        <th scope="col">Общая точность</th>
+    </tr>
+    <tr><th scope="row"><strong>Мужская смертность</strong></th>
+        {%for i in ml_data %}
+        <td>{{i}}</td>
+        {% endfor %}
+    </tr>
+    <tr><th scope="row"><strong>Осложнения у мужчин</strong></th>
+    {%for i in mc_data %}
+        <td>{{i}}</td>
+        {% endfor %}
+    </tr>
+    <tr><th scope="row"><strong>Женская смертность</strong></th>
+    {%for i in fl_data %}
+        <td>{{i}}</td>
+        {% endfor %}
+    </tr>
+    <tr><th scope="row"><strong>Осложнения у женщин</strong></th>
+    {%for i in fc_data %}
+        <td>{{i}}</td>
+        {% endfor %}
+    </tr>
+</table>
+<a class="btn btn-dark" href="{% url 'menu' %}">Назад</a>
+{% endblock %}

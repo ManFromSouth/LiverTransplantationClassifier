@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Главное меню</title>
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <h2 style="color:white">Прогнозирование осложнений реципиентов печени</h2>
+        </nav>
+    </header>
+    <main role="main" class="flex-shrink-0" style="padding-top:60px">
+    <div class="container">
+    <h3 class="text-secondary">Главное меню</h3>
+    <ul class="list-group list-group-vertical-md">
+        <li class="list-group-item"><a class="btn" href="{%url 'form' id_form=1%}" role="button">
+            <strong>Мужская смертность</strong></a></li>
+        <li class="list-group-item"><a class="btn" href="{%url 'form' id_form=2%}"> <strong>
+            Осложнения мужчин</strong></a></li>
+        <li class="list-group-item"><a class="btn" href="{%url 'form' id_form=3%}"> <strong>
+            Женская смертность</strong></a></li>
+        <li class="list-group-item"><a class="btn" href="{%url 'form' id_form=4%}"> <strong>
+           Осложнения женщин
+        </strong></a></li>
+        <li class="list-group-item"><a class="btn" href="{%url 'details' %}"> <strong>
+            Сведения о сетях
+        </strong></a></li>
+    </ul>
+    </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+    <div class="container">
+        <span class="text-muted">При возникновении вопросов - обращаться на: igor.bordonos@gmail.com</span>
+    </div>
+</footer>
+
+</body>

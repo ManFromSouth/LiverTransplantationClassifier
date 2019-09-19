@@ -1,0 +1,63 @@
+{% extends "wrap.html"%}
+{% block title%}Женская смертность{% endblock %}
+
+{% block content%}
+<h2>Прогнозирование женской смертности</h2>
+<h3 class="text-secondary">Введите данные</h3>
+    {% if error_message %}
+    <div class="text-danger">
+        {% for e_m in error_message %}
+           <p><strong> {{ e_m }} </strong></p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form action="{% url 'calculate' id_type=3 %}" method = "post">
+        {% csrf_token%}
+        <div class ="form-group">
+            <label for="GLU"> Глюкоза </label>
+            <input class="form-control" type = "text" id="GLU" name="glu_resp" value="{{glu_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="ERY"> Эритроциты </label>
+            <input class="form-control" type = "text" id="ERY" name="ery_resp" value="{{ery_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="ACTV"> АЧТВ </label>
+            <input  class="form-control" type = "text" id="ACTV" name="actv_resp" value="{{actv_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="CSS"> ЧСС </label>
+            <input class="form-control" type = "number" id="CSS" name="css_resp" value="{{css_val}}">
+        </div>
+        <div class ="form-group form-check">
+            <input class="form-check-input" class="form-check-input" type="checkbox" id ="MFA" name="mfa_resp" value="{{mfa_val}}">
+            <label class="form-check-label" for="MFA"> Микофен. кислота </label>
+        </div>
+        <div class ="form-group form-check">
+            <input type="checkbox" class="form-check-input" id ="TKL" name="tkl_resp" value="{{tkl_val}}">
+            <label class="form-check-label" for="TKL"> Такролимус </label>
+        </div>
+        <div class ="form-group form-check">
+            <input type="checkbox" class="form-check-input" id ="MP" name="mp_resp" value="{{mp_val}}">
+            <label class="form-check-label" for="MP"> Метилпредниз </label>
+        </div>
+        <div class ="form-group">
+            <label for="DAD">ДАД</label>
+            <input  class="form-control" type = "number" id="DAD" name="dad_resp" value="{{dad_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="KKR"> Кокраф </label>
+            <input  class="form-control" type = "text" id="KKR" name="kkr_resp" value="{{kkr_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="MDRD"> MDRD </label>
+            <input  class="form-control" type = "text" id="MDRD" name="mdrd_resp" value="{{mdrd_val}}">
+        </div>
+        <div class ="form-group">
+            <label for="SCORE"> Score </label>
+            <input  class="form-control" type = "text" id="SCORE" name="score_resp" value="{{score_val}}">
+        </div>
+        <input type="submit" class="btn btn-info" value="Прогнозировать">
+    </form>
+{% endblock %}
